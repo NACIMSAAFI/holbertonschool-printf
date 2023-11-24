@@ -24,11 +24,10 @@ int print_string(va_list *args)
 	{
 		return (-1);
 	}
-	while (spec[i])
+	for (i=0; spec[i] != '\0'; i++)
 		_putchar(spec[i]);
-	i++;
-	count++;
-	return (0);
+	count ++;
+	return (count);
 }
 /**
  * print_percent - Function to print a percent sign
@@ -37,5 +36,5 @@ int print_string(va_list *args)
 int print_percent(va_list *args)
 {
 	_putchar(va_arg(*args, int));
-	return (0);
+	return (1);
 }
