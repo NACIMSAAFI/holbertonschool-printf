@@ -40,8 +40,11 @@ int print_string(va_list *args)
  * print_percent - Function to print a percent sign
  * @args: va_list containing the argument.
  */
-int print_percent(va_list *args)
+int print_percent(__attribute__((unused))va_list *args)
+
 {
-	_putchar(va_arg(*args, int));
+	(void)args;
+	_putchar('%');
+	
 	return (1);
 }
