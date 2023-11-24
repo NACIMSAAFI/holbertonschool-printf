@@ -1,27 +1,26 @@
-#ifndef _MAIN_H
-#define _MAIN_H
-#include <stdarg.h>
+#ifndef MAIN_H
+#define MAIN_H
 
+#include <stdarg.h>
 /**
- * struct formatter - Structure to represent
- * a format specifier and its corresponding print function.
- * @spec: The format specifier character.
- * @print: Pointer to the print function for the specified type.
+ * struct fmt - Structure to associate
+ * format specifiers with corresponding functions.
+ * @spec: The format specifier character (e.g., 'c', 's', '%').
+ * @print: A function pointer to the
+ * associated print function for the specifier.
  */
-typedef struct formatter
+typedef struct fmt
 {
 	char spec;
-	int (*print)(va_list *);
+	int (*print)(va_list list);
 } fmt;
 
+int get_functions_printf(const char *format, va_list list, const fmt f[]);
+int _printf(const char *format, ...);
 int _putchar(char c);
 
-int _printf(const char *format, ...);
-
-int print_char(va_list *args);
-int print_string(va_list *args);
-int print_percent(va_list *args);
-int print_int(va_list *args);
-int print_decimal(va_list *args);
+int print_char(va_list args);
+int print_string(va_list args);
+int print_percent(va_list args);
 
 #endif
