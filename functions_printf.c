@@ -43,7 +43,6 @@ int print_string(va_list *args)
 int print_percent(__attribute__((unused))va_list *args)
 
 {
-	(void)args;
 	_putchar('%');
 	
 	return (1);
