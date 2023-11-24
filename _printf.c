@@ -4,18 +4,18 @@
 
 int _printf(const char *format, ...)
 {
-	  	int i, j, count = 0;
+    int i, j, count = 0;
     fmt f[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'%', print_percent},
-		{'\0', NULL}};
+        {'c', print_char},
+        {'s', print_string},
+        {'%', print_percent},
+        {'\0', NULL}};
 
     va_list args;
     va_start(args, format);
 
     if (format == NULL)
-        return (-1); 
+        return (-1);
 
     for (i = 0; format[i] != '\0'; i++)
     {
@@ -42,7 +42,14 @@ int _printf(const char *format, ...)
                 }
                 j++;
             }
-           
+
+            if (f[j].spec != format[i + 1] && format[i + 1] != ' ')
+            {
+                _putchar('%');
+                _putchar(format[i + 1]);
+                count += 2;
+            }
+
             i++;
         }
     }
