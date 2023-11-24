@@ -1,57 +1,28 @@
 #include "main.h"
-#include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * _printf - Custom printf function.
+ * @format: A format string containing conversion specifiers.
+ *
+ * Return: The number of characters printed.
+ */
 int _printf(const char *format, ...)
 {
-    int i, j, count = 0;
-    fmt f[] = {
-        {'c', print_char},
-        {'s', print_string},
-        {'%', print_percent},
-        {'\0', NULL}};
+	int count = 0;
+	fmt f[] = {
+		{'c', print_char},
+		{'s', print_string},
+		{'%', print_percent},
+		{'\0', NULL}};
+	va_list args;
 
-    va_list args;
-    va_start(args, format);
+	va_start(args, format);
+	if (format == NULL)
+		return (-1);
 
-    if (format == NULL)
-        return (-1);
+	count = get_functions_printf(format, args, f);
 
-    for (i = 0; format[i] != '\0'; i++)
-    {
-        if (format[i] != '%')
-        {
-            _putchar(format[i]);
-            count++;
-        }
-        else
-        {
-            if (format[i + 1] == 0)
-            {
-				return(-1);
-                break;
-            }
-            j = 0;
-            while (f[j].spec)
-            {
-                if (f[j].spec == format[i + 1])
-                {
-                    count += f[j].print(&args);
-                    break;
-                }
-                j++;
-            }
-
-            if (f[j].spec != format[i + 1] && format[i + 1] != ' ')
-            {
-                _putchar('%');
-                _putchar(format[i + 1]);
-                count += 2;
-            }
-
-            i++;
-        }
-    }
-    va_end(args);
-    return (count);
+	va_end(args);
+	return (count);
 }
