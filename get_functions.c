@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * get_functions - Process format specifiers in the given format string.
+ * get_functions_printf - Process format specifiers in the given format string.
  * @format: A format string containing conversion specifiers.
  * @list: A va_list of arguments.
  * @f: An array of fmt structures.
