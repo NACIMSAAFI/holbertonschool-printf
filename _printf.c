@@ -32,7 +32,6 @@ int _printf(const char *format, ...)
                 count++;
                 break;
             }
-
             j = 0;
             while (f[j].spec)
             {
@@ -43,17 +42,10 @@ int _printf(const char *format, ...)
                 }
                 j++;
             }
-            if (!f[j].spec && format[i + 1] != '%')
-            {
-                _putchar('%');
-                _putchar(format[i + 1]);
-                count += 2;
-            }
-
+           
             i++;
         }
     }
-
     va_end(args);
-    return count;
+    return (count);
 }
