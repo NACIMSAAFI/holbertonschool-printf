@@ -23,7 +23,7 @@ int print_string(va_list *args)
 
     if (spec == NULL)
     {
-        return (-1);
+       spec = "(null)";
     }
 
     while (spec[i])
