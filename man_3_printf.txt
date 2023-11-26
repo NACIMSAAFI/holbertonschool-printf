@@ -1,0 +1,50 @@
+NAME
+    _printf - Format and print data to stdout
+
+SYNOPSIS
+    #include "your_printf_header.h"
+
+    int _printf(const char *format, ...);
+
+DESCRIPTION
+    The _printf function is a custom implementation for formatting and printing data to the standard output stream (stdout).
+	It supports a subset of conversion specifiers that allow for basic formatting of characters and strings.
+
+RETURN VALUE
+    The function returns the number of characters printed (excluding the null byte used to end output to strings).
+	In case of an error, it returns -1.
+
+FORMAT SPECIFIERS
+    The format string passed to _printf may contain zero or more conversion specifiers.
+	Each specifier begins with the % character and is followed by a character that indicates the type of conversion.
+
+Supported Conversion Specifiers:
+    - %c: Print a single character.
+    - %s: Print a null-terminated string.
+    - %%: Print a literal %.
+    - %d, %i: Print signed decimal integer. (No flag characters, field width, precision, or length modifiers are supported.)
+
+EXAMPLES
+    #include "your_printf_header.h"
+
+    int main() {
+        int num = 7;
+        char ch = 'A';
+        char *str = "Hello, World!";
+
+        _printf("Character: %c\n", ch);          // Output: Character: A
+        _printf("String: %s\n", str);            // Output: String: Hello, World!
+        _printf("Percentage: %%\n");             // Output: Percentage: %
+
+        _printf("Integer: %d\n", num);           // Output: Integer: 7
+        _printf("Another Integer: %i\n", num);   // Output: Another Integer: 7
+
+        return 0;
+    }
+
+NOTES
+    - This implementation of _printf does not replicate the full functionality of the C library printf function.
+    - Field width, precision, flag characters, and length modifiers are not supported.
+
+AUTHORS
+Nacim Saafi  Taha Khezami
