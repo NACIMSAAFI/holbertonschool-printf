@@ -27,5 +27,5 @@ int print_percent(va_list *args);
 int print_integer(va_list *args);
 int print_decimal(va_list *args);
 int print_all_number(int a);
- int print_INT_MIN();
+int print_INT_MIN(void);
 #endif

@@ -10,6 +10,7 @@
 int get_functions(const char *format, va_list *args, fmt *f)
 {
 	int i, j, count = 0;
+
 	for (i = 0; format[i] != '\0';)
 	{
 		if (format[i] != '%')
