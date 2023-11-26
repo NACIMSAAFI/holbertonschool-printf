@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <limits.h>
 
-
 /**
  * struct formatter - Structure to represent
  * a format specifier and its corresponding print function.
@@ -28,4 +27,5 @@ int print_percent(va_list *args);
 int print_integer(va_list *args);
 int print_decimal(va_list *args);
 int print_all_number(int a);
+ int print_INT_MIN();
 #endif
