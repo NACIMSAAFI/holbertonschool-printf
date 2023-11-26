@@ -41,8 +41,10 @@ int print_all_number(int a)
 		a = -a;
 
 	if (a == 0)
+    {
 		_putchar('0');
         return(1);
+    }
 
 	if (a / 10)
 		count += print_all_number(a / 10);
