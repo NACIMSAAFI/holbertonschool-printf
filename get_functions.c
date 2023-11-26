@@ -1,53 +1,49 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
-
 /**
- * get_functions_printf - Process format specifiers in the given format string.
- * @format: A format string containing conversion specifiers.
- * @list: A va_list of arguments.
- * @f: An array of fmt structures.
- *
- * Return: The number of characters printed.
+ * get_functions - Function to print a character.
+ * @format: format or template as you wish
+ * @args: va_list containing the argument passed to printf
+ * @f: pointer to an array of structures
+ * Return: counter
  */
-int get_functions_printf(const char *format, va_list list, const fmt f[])
-{
-	int count = 0, i, j, num;
 
-	for (i = 0; format && format[i] != '\0'; i++)
+int get_functions(const char *format, va_list *args, fmt *f)
+{
+	int i, j, count = 0;
+	for (i = 0; format[i] != '\0';)
 	{
 		if (format[i] != '%')
 		{
 			_putchar(format[i]);
-			count += 1;
+			count++;
 		}
 		else
 		{
+
 			for (j = 0; f[j].spec != '\0'; j++)
 			{
-				if (format[i + 1] == f[j].spec)
+				if (f[j].spec == format[i + 1])
 				{
-					num = f[j].print(list);
-					count += num;
-					i++;
+					count += f[j].print(args);
 					break;
 				}
 			}
-			if (f[j].spec == '\0' && format[i + 1] != ' ')
+			if (f[j].spec == '\0')
 			{
-				if (format[i + 1] != '\0')
+				if (format[i + 1] == '\0')
+				{
+					return (-1);
+				}
+				else
 				{
 					_putchar(format[i]);
 					_putchar(format[i + 1]);
 					count += 2;
-					i++;
 				}
-				else
-					return (-1);
 			}
+			i++;
 		}
+		i++;
 	}
-	if (format == NULL)
-		return (-1);
 	return (count);
 }

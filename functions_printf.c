@@ -1,50 +1,47 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 /**
- * print_char - Print a character.
- * @args: A va_list containing the argument.
- *
- * Return: Number of characters printed (always 1).
+ * print_char - Function to print a character.
+ * @args: va_list containing the argument.
  */
-int print_char(va_list args)
+int print_char(va_list *args)
 {
-	return (_putchar(va_arg(args, int)));
+	_putchar(va_arg(*args, int));
+	return (1);
 }
-
 /**
- * print_string - Print a string.
- * @args: A va_list containing the argument.
- *
- * Return: Number of characters printed.
+ * print_string - Function to print a string.
+ * @args: va_list containing the argument.
  */
-int print_string(va_list args)
+int print_string(va_list *args)
 {
+	int i = 0;
 	int count = 0;
-	char *str = va_arg(args, char *);
+	char *spec = va_arg(*args, char *);
 
-	if (str == NULL)
+	if (spec == NULL)
 	{
-		str = "(null)";
+		spec = "(null)";
 	}
 
-	while (*str)
+	while (spec[i])
 	{
-		count += _putchar(*str);
-		str++;
+		_putchar(spec[i]);
+		i++;
+		count++;
 	}
 
 	return (count);
 }
 
 /**
- * print_percent - Print a percent sign.
- * @args: A va_list containing the argument (unused).
- *
- * Return: Number of characters printed (always 1).
+ * print_percent - Function to print a percent sign
+ * @args: va_list containing the argument.
  */
-int print_percent(__attribute__((unused)) va_list args)
+int print_percent(__attribute__((unused)) va_list *args)
+
 {
-	return (_putchar('%'));
+	_putchar('%');
+
+	return (1);
 }

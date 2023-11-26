@@ -1,11 +1,9 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- * _printf - Custom printf function.
- * @format: A format string containing conversion specifiers.
+ * _printf - Function with formatted printing
+ * @format: format to be printed
  *
- * Return: The number of characters printed.
+ * Return: number of printed caracters
  */
 int _printf(const char *format, ...)
 {
@@ -14,15 +12,15 @@ int _printf(const char *format, ...)
 		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
+		{'d', print_decimal},
+		{'i', print_integer},
 		{'\0', NULL}};
 	va_list args;
 
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
-
-	count = get_functions_printf(format, args, f);
-
+	count = get_functions(format, &args, f);
 	va_end(args);
 	return (count);
 }
