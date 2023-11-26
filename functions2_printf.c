@@ -8,6 +8,14 @@ int print_decimal(va_list *args)
 {
     int count = 0;
 	int a = va_arg(*args, int);
+       
+    if (a == INT_MIN)
+    {
+        _putchar('-');
+        count++;
+      
+        a = -(INT_MIN + 1);
+    }
 	if (a < 0)
     {
 		_putchar('-');
