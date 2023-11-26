@@ -11,11 +11,17 @@ These two files house the functions corresponding to different specifiers. They 
 3. get_functions.c
 This file outlines the functions that specify the conditions for the _printf function. It determines the appropriate action based on the encountered specifier.
 
-4. printf.c
+4. _printf.c
 The printf.c file is the main file for the _printf function, orchestrating the execution of the variadic printing function.
 
 5. main.h
 This header file provides declarations and structures essential for the proper functioning of the _printf function.
+
+6. INT_MIN_case.c
+This file ensure the right printing for a INT_MIN number
+
+7. man_3_printf
+man_3_printf is the manual of the _printf function
 
 How to Use:
 Compilation:
