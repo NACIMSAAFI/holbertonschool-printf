@@ -3,7 +3,7 @@
 /**
  * print_char - Function  to print a character.
  * @args: va_list containing the argument.
- * 
+ *
  * Return: number of printed caracters
  */
 int print_char(va_list *args)
@@ -14,7 +14,7 @@ int print_char(va_list *args)
 /**
  * print_string - Function to print a string.
  * @args: va_list containing the argument.
- * 
+ *
  * Return: number of printed caracters
  */
 int print_string(va_list *args)
@@ -41,7 +41,7 @@ int print_string(va_list *args)
 /**
  * print_percent - Function to print a percent sign
  * @args: va_list containing the argument.
- * 
+ *
  * Return: number of printed caracters
  */
 int print_percent(__attribute__((unused)) va_list *args)

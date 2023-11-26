@@ -2,7 +2,8 @@
 
 /**
  * print_INT_MIN - Function to print INT_MIN.
- * @a: integer
+ * 
+ * Return: number of printed caracters
  */
 int print_INT_MIN(void)
 {
