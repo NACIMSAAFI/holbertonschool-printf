@@ -1,8 +1,10 @@
 #include "main.h"
 
 /**
- * print_char - Function to print a character.
+ * print_decimal - Function to print a decimal.
  * @args: va_list containing the argument.
+ * 
+ * Return: number of printed caracters
  */
 int print_decimal(va_list *args)
 {
@@ -15,8 +17,10 @@ int print_decimal(va_list *args)
 }
 
 /**
- * print_char - Function to print a character.
+ * print_integer - Function to print an integer.
  * @args: va_list containing the argument.
+ * 
+ * Return: number of printed caracters
  */
 int print_integer(va_list *args)
 {
@@ -31,6 +35,8 @@ int print_integer(va_list *args)
 /**
  * print_all_number - Function to print a number.
  * @a: integer
+ * 
+ * Return: number of printed caracters
  */
 int print_all_number(int a)
 {
